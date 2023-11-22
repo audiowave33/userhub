@@ -21,6 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 */
 
+Route::get('/test', function() {
+	$test = gethostname();
+	return response($test);
+});
 Route::get('/user/all', [UserController::class, 'all']);
 Route::get('/user/{id}', [UserController::class, 'show']);
 Route::get('/user/search',[UserController::class, 'search']);

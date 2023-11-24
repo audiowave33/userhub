@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/info', function() {
+	$host = system("hostnamectl && echo '--------------------------------'");
+	$memory = system("free -h && echo '--------------------------------'");
+	$space = system("df -h && echo '--------------------------------'");
+	$ip = system("ip a && echo  '--------------------------------'");
+	return response()->json();
+});
